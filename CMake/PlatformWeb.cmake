@@ -1,0 +1,4 @@
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE BOTH)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE BOTH)
+message(STATUS "Web Build")
+message(STATUS "Emscripten Web Build")
