@@ -30,6 +30,6 @@ in the directory where you have chosen as your build directory.
 #### On Linux/Unix Systems
 
 ### Credits
-GLFW - https://github.com/libsdl-org/SDL   
+SDL2 - https://github.com/libsdl-org/SDL   
 Vulkan - https://www.vulkan.org/  
 Dear ImGui - https://github.com/ocornut/imgui
