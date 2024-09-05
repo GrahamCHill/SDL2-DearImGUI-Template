@@ -1,11 +1,11 @@
-//#ifdef __unix__
-//
-//
-//#elif defined(_WIN32) || defined(WIN32)
-//
-//#include <windows.h>
-//
-//#endif
+#ifdef __unix__
+
+
+#elif defined(_WIN32) || defined(WIN32)
+
+#include <windows.h>
+
+#endif
 
 
 #include "imgui.h"
@@ -600,13 +600,13 @@ int main(int argc, char *args[])
 }
 
 //#ifdef __unix__
-//
-//
-//#elif defined(_WIN32) || defined(WIN32)
-//
-//int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-//                   LPSTR lpCmdLine, int nCmdShow) {
-//    return main(__argc, __argv);
-//}
-//
-//#endif
+
+
+#elif defined(_WIN32) || defined(WIN32)
+
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
+                  LPSTR lpCmdLine, int nCmdShow) {
+   return main(__argc, __argv);
+}
+
+#endif
