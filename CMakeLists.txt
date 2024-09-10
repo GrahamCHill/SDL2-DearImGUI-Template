@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.27)
-project(SpockGL)
+project(SDL2_DearImGUI_Template)
 set(EXE_NAME ${PROJECT_NAME})
 set(CMAKE_CXX_STANDARD 20)
 
