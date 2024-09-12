@@ -6,6 +6,3 @@
 	path = Submodules/SDL2
 	url = https://github.com/libsdl-org/SDL.git
 	branch = SDL2
-[submodule "Submodules/Vulkan-Loader"]
-	path = Submodules/Vulkan-Loader
-	url = https://github.com/GrahamCHill/DynamicVulkLoader
