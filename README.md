@@ -1,4 +1,4 @@
-# SDL2 Vulkan Template
+# SDL2 Dear ImGui Vulkan Template (CMake)  
 
 | Platform   |  Support  |
 |:-----------|:---------:|
