@@ -1,13 +1,14 @@
 # SDL2 Dear ImGui Vulkan Template (CMake)  
 
+A template that uses Vulkan on Windows and MoltenVK on macOS that allows setting of application icon by the developer with convenience files.  
+This is a relativly simple template file allowing you to develop from ocornut's [Dear ImGui](https://github.com/ocornut/imgui) SDL2+Vulkan template.  
+If you would rather use GLFW and Dear ImGUI, you can use the sister template I have created here [GLFW variant](https://github.com/GrahamCHill/GLFW-DearImGui-Vulkan-Template)
+
 | Platform   |  Support  |
 |:-----------|:---------:|
 | Windows    |     ✅     |
 | macOS      |     ✅     |
 | Linux      |     ❌     |
-
-## About
-An SDL2 Vulkan template
 
 
 ### Build Help
