@@ -52,7 +52,7 @@ set(SOURCE_PATTERN "*.*")
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/Submodules/CMakeLists.txt)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/Cmake/Platform.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/CMake/Platform.cmake)
 
 add_executable(${EXE_NAME}
 #        WIN32
@@ -62,7 +62,7 @@ add_executable(${EXE_NAME}
 
 set(TARGET_LIBS SDL2)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/Cmake/PostBuild.cmake)
+include(${CMAKE_CURRENT_SOURCE_DIR}/CMake/PostBuild.cmake)
 
 
 
