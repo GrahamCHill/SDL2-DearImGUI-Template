@@ -23,7 +23,7 @@
             "${CMAKE_CURRENT_BINARY_DIR}/${EXE_NAME}.app/Contents/Resources/vulkan/icd.d/"
 
 
-            # Copying Vulkan Files, The library will link to these and if it fails, fallback to OpenGL
+            # Copying Vulkan Files, The library will link to these and if it fails
             COMMAND ${CMAKE_COMMAND} -E copy
             "$ENV{HOME}/VulkanSDK/${VULKANVERSION}/macOS/lib/${VULKAN_LIB}"
             "${CMAKE_CURRENT_BINARY_DIR}/${EXE_NAME}.app/Contents/Frameworks/libvulkan.1.dylib"

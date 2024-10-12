@@ -23,9 +23,6 @@ if(APPLE)
     # security find-identity -p codesigning -v
     # Just replace the placeholder in the code below if CODE_SIGN is true
     set(SIGN_ID "Apple Development: your-email@email.com \\(j3rgt32tfs\\)")
-    # Currently it requires SDL installed in the frameworks folder
-    # but only for Code completion and to let the IDE know about SDL2
-#    find_package(SDL2)
     include_directories(${SDL2_INCLUDE_DIRS})
     # Found in $ENV{HOME}/VulkanSDK/${VULKANVERSION}/macOS/lib/
     set(VULKAN_LIB "libvulkan.1.3.283.dylib")
@@ -38,7 +35,10 @@ if(APPLE)
 
     # Linux Specific Settings
 elseif (NOT APPLE AND UNIX)
-
+    # Make sure patchelf is installed before changing the below to TRUE
+    # pip install patchelf
+    # https://github.com/NixOS/patchelf
+    set(EASY_PORTABLE FALSE)
 
     # Windows Specific Settings
 elseif (NOT APPLE AND NOT UNIX)
