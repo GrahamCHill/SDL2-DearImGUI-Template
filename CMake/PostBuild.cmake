@@ -5,6 +5,7 @@ target_include_directories(${EXE_NAME}
 target_link_libraries(${PROJECT_NAME}
         ${Vulkan_LIBRARIES}
         ${TARGET_LIBS}
+        ${APPLE_FRAMEWORKS}
 )
 
 # macOS build

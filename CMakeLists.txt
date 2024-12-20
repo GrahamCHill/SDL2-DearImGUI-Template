@@ -10,6 +10,8 @@ endif()
 
 message(STATUS "Project Name: ${EXE_NAME}")
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/CMake/SettingsRenderer.cmake)
+
 #Haven's started on the lib just yet for clever loading of Vulkan
 find_package(Vulkan)
 
