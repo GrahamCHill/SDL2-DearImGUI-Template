@@ -39,7 +39,7 @@ You will have to update the following lines in the CMakeLists.txt:
 
 ````Cmake
     set(VULKAN_LIB "libvulkan.1.3.283.dylib")
-    set(VULKANVERSION 1.3.283.0)
+    set(VULKAN_VERSION 1.3.283.0)
 ````
 
 You will alter the version numbers to match your MoltenVK version, and then it should build and create a fully portable binary.

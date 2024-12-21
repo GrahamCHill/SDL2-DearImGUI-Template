@@ -10,23 +10,22 @@ if(CMAKE_BUILD_TYPE STREQUAL "Debug")
 else()
     message(STATUS "Bundling for a release build -- should be portable")
 
-    set(ICONS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/AppIcon")
-    set(MACOSX_BUNDLE_ICON_FILE "myAppImage.icns")
+    set(MACOSX_BUNDLE_ICON_FILE "${MAC_APP_IMAGE}")
 
     set_source_files_properties(
             # place resources here like this:
             # "${RESOURCES_DIR}/cute_image.jpg"
-            "${ICONS_DIR}/myAppImage.icns"
+            "${ICONS_DIR}/${MAC_APP_IMAGE}"
             PROPERTIES
             MACOSX_PACKAGE_LOCATION "Resources"
     )
-    set(APP_ICON "${ICONS_DIR}/myAppImage.icns")
+    set(APP_ICON "${ICONS_DIR}/${MAC_APP_IMAGE}")
 
     # Holdover from old test version, it still works and forces dev to update settings for the release build
     include_directories(VULKAN_MACOS_INCLUDE
-            $ENV{HOME}/VulkanSDK/${VULKANVERSION}/macOS/include)
+            $ENV{HOME}/VulkanSDK/${VULKAN_VERSION}/macOS/include)
     set(VULKAN_MACOS_LIBS
-            $ENV{HOME}/VulkanSDK/${VULKANVERSION}/macOS/lib/${VULKAN_LIB}
+            $ENV{HOME}/VulkanSDK/${VULKAN_VERSION}/macOS/lib/${VULKAN_LIB}
     )
 
 endif()

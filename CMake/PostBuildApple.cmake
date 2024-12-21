@@ -1,16 +1,16 @@
     set_target_properties(${EXE_NAME}
             PROPERTIES
             MACOSX_BUNDLE_BUNDLE_NAME ${EXE_NAME}
-            MACOSX_BUNDLE_COPYRIGHT "Copyright © 1995-2009, ${EXE_NAME} , All Rights Reserved."
-            MACOSX_BUNDLE_GUI_IDENTIFIER "${EXE_NAME}.grahamhill.dev"
-            MACOSX_BUNDLE_ICON_FILE "myAppImage.icns"
-            MACOSX_BUNDLE_BUNDLE_VERSION 1.0
-            MACOSX_BUNDLE_SHORT_VERSION_STRING 1.0
+            MACOSX_BUNDLE_COPYRIGHT "${MAC_COPYRIGHT}, ${EXE_NAME}, All Rights Reserved."
+            MACOSX_BUNDLE_GUI_IDENTIFIER "${EXE_NAME}.${MAC_GUI_IDENTIFIER}"
+            MACOSX_BUNDLE_ICON_FILE "${MAC_APP_IMAGE}"
+            MACOSX_BUNDLE_BUNDLE_VERSION ${MAC_BUNDLE_VERSION}
+            MACOSX_BUNDLE_SHORT_VERSION_STRING ${MAC_BUNDLE_SHORT_VERSION}
             MACOSX_BUNDLE TRUE
-            XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME YES
-            XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "dev.grahamhill.${EXE_NAME}"
-            BUILD_WITH_INSTALL_RPATH TRUE
-            INSTALL_RPATH "@executable_path/../Frameworks"
+            XCODE_ATTRIBUTE_ENABLE_HARDENED_RUNTIME ${MAC_HARDENED_RUNTIME}
+            XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER "${MAC_XCODE_IDENTIFIER}.${EXE_NAME}"
+            BUILD_WITH_INSTALL_RPATH ${MAC_WITH_INSTAlL_RPATH}
+            INSTALL_RPATH "${MAC_INSTAlL_RPATH_PATH}"
     )
 
 
@@ -25,13 +25,13 @@
 
             # Copying Vulkan Files, The library will link to these and if it fails
             COMMAND ${CMAKE_COMMAND} -E copy
-            "$ENV{HOME}/VulkanSDK/${VULKANVERSION}/macOS/lib/${VULKAN_LIB}"
+            "$ENV{HOME}/VulkanSDK/${VULKAN_VERSION}/macOS/lib/${VULKAN_LIB}"
             "${CMAKE_CURRENT_BINARY_DIR}/${EXE_NAME}.app/Contents/Frameworks/libvulkan.1.dylib"
             COMMAND ${CMAKE_COMMAND} -E copy
-            "$ENV{HOME}/VulkanSDK/${VULKANVERSION}/macOS/lib/${VULKAN_LIB}"
+            "$ENV{HOME}/VulkanSDK/${VULKAN_VERSION}/macOS/lib/${VULKAN_LIB}"
             "${CMAKE_CURRENT_BINARY_DIR}/${EXE_NAME}.app/Contents/Frameworks/${VULKAN_LIB}"
             COMMAND ${CMAKE_COMMAND} -E copy
-            "$ENV{HOME}/VulkanSDK/${VULKANVERSION}/macOS/lib/libMoltenVK.dylib"
+            "$ENV{HOME}/VulkanSDK/${VULKAN_VERSION}/macOS/lib/libMoltenVK.dylib"
             "${CMAKE_CURRENT_BINARY_DIR}/${EXE_NAME}.app/Contents/Frameworks/libMoltenVK.dylib"
             COMMAND ${CMAKE_COMMAND} -E copy
             "${CMAKE_CURRENT_SOURCE_DIR}/MoltenVK_icd.json"

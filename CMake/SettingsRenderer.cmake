@@ -1,4 +1,3 @@
-set(VULKAN_BACKEND true)
 # Apple Settings
 if (APPLE AND NOT EMSCRIPTEN)
     if (NOT VULKAN_BACKEND)

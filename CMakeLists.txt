@@ -10,47 +10,10 @@ endif()
 
 message(STATUS "Project Name: ${EXE_NAME}")
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/src/code.cmake)
 include(${CMAKE_CURRENT_SOURCE_DIR}/CMake/SettingsRenderer.cmake)
 
-#Haven's started on the lib just yet for clever loading of Vulkan
 find_package(Vulkan)
-
-# Apple Specific Settings
-if(APPLE)
-    set(CMAKE_OSX_DEPLOYMENT_TARGET 10.15)
-    set(CMAKE_OSX_ARCHITECTURES "arm64; x86_64") #Universal Binary
-
-    set(CODE_SIGN FALSE)
-    # Run the following command to find your Signing ID
-    # security find-identity -p codesigning -v
-    # Just replace the placeholder in the code below if CODE_SIGN is true
-    set(SIGN_ID "Apple Development: your-email@email.com \\(j3rgt32tfs\\)")
-    include_directories(${SDL2_INCLUDE_DIRS})
-    # Found in $ENV{HOME}/VulkanSDK/${VULKANVERSION}/macOS/lib/
-    set(VULKAN_LIB "libvulkan.1.3.283.dylib")
-    set(VULKANVERSION 1.3.283.0)
-
-
-    set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Resources")
-    set(DESTINATION_DIR "${CMAKE_CURRENT_BINARY_DIR}/${EXE_NAME}.app/Contents/Resources")
-
-
-    # Linux Specific Settings
-elseif (NOT APPLE AND UNIX)
-    # Make sure patchelf is installed before changing the below to TRUE
-    # pip install patchelf
-    # https://github.com/NixOS/patchelf
-    set(EASY_PORTABLE FALSE)
-
-    # Windows Specific Settings
-elseif (NOT APPLE AND NOT UNIX)
-    set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/Resources")
-    set(DESTINATION_DIR "${CMAKE_CURRENT_BINARY_DIR}/../Resources")
-endif()
-
-# The pattern for copying files to the resources directory
-set(SOURCE_PATTERN "*.*")
-
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/Submodules/CMakeLists.txt)
 
@@ -59,7 +22,8 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/CMake/Platform.cmake)
 add_executable(${EXE_NAME}
 #        WIN32
         MACOSX_BUNDLE
-        src/main.cpp
+        ${ENTRY_POINT}
+        ${APP_CODE}
         ${SUBMODULE_INCLUDE})
 
 set(TARGET_LIBS SDL2)
